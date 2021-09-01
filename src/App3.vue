@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-      <h1>Vue transition 테스트</h1>
-      <button @click="make">만들기</button>
+      <h1>Vue transition 테스트3</h1>
+      <input type="checkbox" v-model="isMake">
       <transition name="gura">
         <div v-if="isMake" class="box"></div>
       </transition> 
@@ -11,41 +11,48 @@
 <script>
 
 export default {
-  name: 'App',
+  name: 'App3',
   data(){
     return {
       isMake:false
     };
   },
   methods:{
-    make(){
-      this.isMake=true;
-    }
+   
   }
 }
 </script>
 
 <style>
+
+  
   .box{
     width: 100px;
     height: 100px;
     border: 1px solid red;
     background-color: yellow;
   }
-
-  /* 등장하기(만들어지기 or 보여지기) 직전에 추가되는 클래스 */
   .gura-enter{
-    background-color: pink;
-  }
+      transform: scale(0.0) rotate(0deg);
 
+  }
   .gura-enter-to{
-    background-color: red;
-    transform: translateX(100px);
+      transform: scale(3.0) rotate(360deg);
+  }
+  .gura-enter-active{
+      transition: all 5s;
   }
 
-  /* 등장하는(만들어지기 or 보여지기) 동안에 추가되는 클래스  */
-  .gura-enter-active{
-    transition: all 5s;
+  .gura-leave{
+      transform: rotate(0deg);
+      opacity: 1;
   }
-  
+  .gura-leave-to{
+      transform: rotate(720deg);
+      opacity: 0;
+  }
+  .gura-leave-active{
+      transition: all 2s
+  }
+
 </style>
