@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import App from './App5.vue'
+import App from './App12.vue'
 
 Vue.config.productionTip = false
 

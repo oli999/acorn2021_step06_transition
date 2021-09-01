@@ -1,8 +1,9 @@
 <template>
   <div id="app">
-      <h1>Vue transition 테스트5</h1>
+      <h1>Vue transition 테스트6</h1>
       <input type="checkbox" v-model="isMake">
-      <transition name="gura">
+      <transition enter-active-class="gura"
+                  leave-active-class="monkey">
         <div v-if="isMake" class="box"></div>
       </transition> 
   </div>
@@ -12,7 +13,7 @@
 <script>
 
 export default {
-  name: 'App5',
+  name: 'App6',
   data(){
     return {
       isMake:false
@@ -36,13 +37,12 @@ export default {
     background-color: yellow;
   }
 
-  .gura-enter-active{
-      /* 로딩한 animate.css 안에 있는 keyframes 의 이름을 활용해서 animation 적용 시키기 */
-      animation: bounceInDown 0.5s ease-out;
-  }
+    .gura{
+        animation: bounceInDown 5s;
+    }
 
-  .gura-leave-active{
-      animation: bounceOutRight 0.5s ease-out;
-  }
+    .monkey{
+        animation: fadeOut 1s;
+    }
 
 </style>

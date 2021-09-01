@@ -1,10 +1,12 @@
 <template>
   <div id="app">
-      <h1>Vue transition 테스트5</h1>
+      <h1>Vue transition 테스트7</h1>
       <input type="checkbox" v-model="isMake">
-      <transition name="gura">
+      <transition enter-active-class="animate__animated animate__bounceInDown"
+                  leave-active-class="animate__animated animate__bounceOutRight"
+                  :duration="1000">
         <div v-if="isMake" class="box"></div>
-      </transition> 
+      </transition>
   </div>
 </template>
 
@@ -12,7 +14,7 @@
 <script>
 
 export default {
-  name: 'App5',
+  name: 'App7',
   data(){
     return {
       isMake:false
@@ -34,15 +36,6 @@ export default {
     height: 100px;
     border: 1px solid red;
     background-color: yellow;
-  }
-
-  .gura-enter-active{
-      /* 로딩한 animate.css 안에 있는 keyframes 의 이름을 활용해서 animation 적용 시키기 */
-      animation: bounceInDown 0.5s ease-out;
-  }
-
-  .gura-leave-active{
-      animation: bounceOutRight 0.5s ease-out;
   }
 
 </style>
